@@ -32,6 +32,6 @@ def train_model():
     logger.info("Saving model...")
     joblib.dump(model, "app/model/iris_model.pkl")
 
-
+#executed train.py
 if __name__ == "__main__":
     train_model()
