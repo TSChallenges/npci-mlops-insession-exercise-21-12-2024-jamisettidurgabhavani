@@ -1,20 +1,23 @@
 # pull python base image
-#Todo
+FROM python:3.10-slim
 
 # add requirements file & trained model
-#Todo
+ADD requirements.txt .
 
 # update pip
-#Todo
+RUN pip install --upgrade pip
 
 # install dependencies
-#Todo
+RUN pip install -r requirements.txt
 
+RUN rm requirements.txt
+
+ADD app/main.py app/.
 # add application file
-#Todo
+ADD app/model/*.pkl app/model/.
 
 # expose port where your application will be running
-#Todo
+EXPOSE 7860
 
 # start application
-#Todo
+CMD ["python", "app/main.py"]
